@@ -1,0 +1,15 @@
+names:
+- ball
+- keeper
+- player
+- referee
+nc: 4
+roboflow:
+  license: CC BY 4.0
+  project: football-player-detection-xvszo
+  url: https://universe.roboflow.com/mikkel-ds/football-player-detection-xvszo/dataset/3
+  version: 3
+  workspace: mikkel-ds
+test: ../test/images
+train: /home/mikkel/VSC/Footbal Players Detection/football-player-detection/Football-Player-Detection-3/train
+val: /home/mikkel/VSC/Footbal Players Detection/football-player-detection/Football-Player-Detection-3/valid
