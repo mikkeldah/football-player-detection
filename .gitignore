@@ -1,7 +1,9 @@
 yolov8*
 test.mp4
 runs/
-Football-Player-Detection-2/
+Football-Player-Detection*
+Football-Player-Detection-6/
+Football-Player-Detection-3/
 config.py
 __pycache__
 .ipynb_checkpoints
