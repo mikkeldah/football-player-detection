@@ -1,7 +1,13 @@
+import yaml
 import cv2
 import matplotlib.pyplot as plt
-import ultralytics
 import numpy as np
+
+import ultralytics
+from roboflow import Roboflow
+
+import config
+
 
 
 class_to_name = {
@@ -9,6 +15,14 @@ class_to_name = {
     1: "keeper",
     2: "player",
     3: "referee",
+}
+
+model_to_folder = {
+    "yolov8n.pt": "nano",
+    "yolov8s.pt": "small",
+    "yolov8m.pt": "medium",
+    "yolov8l.pt": "large",
+    "yolov8x.pt": "xlarge"
 }
 
 def visualize(im_path, label_path):
@@ -33,4 +47,21 @@ def visualize(im_path, label_path):
     plt.figure(figsize=(12, 8), dpi=150)
     plt.imshow(img)
     plt.show()
+
+
+def load_rf_data(version):
+    rf = Roboflow(api_key=config.api_key)
+    project = rf.workspace("mikkel-ds").project("football-player-detection-xvszo")
+    dataset = project.version(version).download("yolov8")
+
+    with open(f"{dataset.location}/data.yaml") as f:
+        doc = yaml.safe_load(f)
+
+        doc['train'] = f"{dataset.location}/train"
+        doc['val'] = f"{dataset.location}/valid"
+
+    with open(f'{dataset.location}/data.yaml', 'w') as f:
+        yaml.safe_dump(doc, f)
+    
+    return dataset.location
 
