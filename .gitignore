@@ -1,4 +1,5 @@
 yolov8*
+*.pt
 test.mp4
 test*.mp4
 runs/
