@@ -11,7 +11,7 @@ from frcnn_tools.engine import train_one_epoch, evaluate
 import utils
 from utils import *
 
-from rcnn_dataset import Dataset
+from faster_rcnn_dataset import Dataset
 
 import albumentations as A
 from albumentations.pytorch.transforms import ToTensorV2
