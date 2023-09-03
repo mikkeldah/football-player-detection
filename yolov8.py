@@ -24,7 +24,7 @@ if __name__ == "__main__":
     imgsz = 640
     MODELS = ['yolov8l.pt', 'yolov8m.pt', 'yolov8s.pt', 'yolov8n.pt']
 
-    dataset_location = load_rf_data(version=9)
+    dataset_location = load_rf_data(version=10)
 
     for MODEL in MODELS:
         res = train_yolov8(model_name=MODEL, dataset_location=dataset_location, epochs=epochs, batch_size=batch_size, imgsz=imgsz)

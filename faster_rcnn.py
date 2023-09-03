@@ -38,7 +38,7 @@ if __name__ == "__main__":
     WEIGHT_DECAY = 0.0005
 
     # DATALOADERS
-    dataset_location = utils.load_rf_data(8)
+    dataset_location = utils.load_rf_data(version=10)
 
     transforms = A.Compose([ToTensorV2(p=1.0)], bbox_params={'format': 'pascal_voc', 'label_fields': ['labels']})
 
